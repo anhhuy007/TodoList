@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TodoList</string>
+    <string name="task_title">Task title</string>
+    <string name="todo_list">TODO LIST</string>
+    <string name="add_task">Add task</string>
+    <string name="task_description">Description</string>
+    <string name="cancel">Cancel</string>
+    <string name="loading">Loading tasks</string>
+</resources>
