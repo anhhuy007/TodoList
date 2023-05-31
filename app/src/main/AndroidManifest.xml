@@ -27,9 +27,9 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity android:name=".ui.activities.AddTaskActivity" />
-        <activity android:name=".ui.activities.TodoListActivity"/>
+        <activity android:name=".ui.activities.TodoListActivity" />
+        <activity android:name=".ui.activities.TaskViewActivity"/>
     </application>
 
 </manifest>

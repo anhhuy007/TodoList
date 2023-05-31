@@ -1,5 +1,6 @@
 package com.example.todolist.ui.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -122,6 +123,7 @@ class TodoListActivity : ComponentActivity() {
         }
     }
 
+    @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
     @Composable
     private fun TodoListScreen(
         taskList: List<Task>,
@@ -190,7 +192,12 @@ class TodoListActivity : ComponentActivity() {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(15.dp),
+                    .padding(15.dp)
+                    .clickable{
+                        val taskViewIntent = Intent(this@TodoListActivity, TaskViewActivity::class.java)
+                        taskViewIntent.putExtra("task", task)
+                        startActivity(taskViewIntent)
+                    },
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Column {
@@ -269,6 +276,7 @@ class TodoListActivity : ComponentActivity() {
         }
     }
 
+    @SuppressLint("CheckResult")
     @Preview(showBackground = true)
     @OptIn(ExperimentalGlideComposeApi::class)
     @Composable

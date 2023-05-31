@@ -32,8 +32,17 @@ import kotlinx.coroutines.flow.asStateFlow
 class AddTaskActivity : ComponentActivity() {
     private val viewModel: AddTaskViewModel by viewModels()
 
+    var action: String? = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        action = intent.getStringExtra("action")
+        if (action == "edit") {
+            val task = intent.getSerializableExtra("task") as com.example.todolist.model.Task
+            viewModel.updateTitle(task.name)
+            viewModel.updateDescription(task.description)
+            viewModel.updatePriority(task.priority)
+        }
 
         setContent {
             TodoListTheme {

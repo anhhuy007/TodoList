@@ -6,4 +6,6 @@
     <string name="task_description">Description</string>
     <string name="cancel">Cancel</string>
     <string name="loading">Loading tasks</string>
+    <string name="title_activity_task_view">TaskViewActivity</string>
+    <string name="description_example">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc sit amet aliquam lacinia, nisl nisl aliquam nisl, eu aliquam nisl nisl sit amet nisl. Sed euismod, nunc sit amet aliquam lacinia</string>
 </resources>

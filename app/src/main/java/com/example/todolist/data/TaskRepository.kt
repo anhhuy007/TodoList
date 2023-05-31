@@ -45,7 +45,20 @@ class NetworkTaskRepository(
     }
 
     override suspend fun deleteTask(task: Task) {
-        TODO("Not yet implemented")
+        taskRef.addValueEventListener(object : ValueEventListener {
+             override fun onDataChange(snapshot: DataSnapshot) {
+                for (data in snapshot.children) {
+                    val task_ = data.getValue(Task::class.java)
+                    if (task_ == task) {
+                        data.ref.removeValue()
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.d("AnhHuy", "onCancelled: ${error.message}")
+            }
+        })
     }
 
     override suspend fun deleteAllTasks() {

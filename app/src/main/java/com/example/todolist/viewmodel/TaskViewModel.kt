@@ -57,4 +57,19 @@ class TaskViewModel(
             }
         }
     }
+
+    fun deleteTask(task: Task) {
+        viewModelScope.launch {
+            taskUiState = TaskUiState.Loading
+            taskUiState = try {
+                taskRepository.deleteTask(task)
+
+                TaskUiState.Success(emptyList())
+            } catch (e: IOException) {
+                TaskUiState.Error(e.message ?: "Unknown error")
+            } catch (e: HttpException) {
+                TaskUiState.Error(e.message ?: "Unknown error")
+            }
+        }
+    }
 }
